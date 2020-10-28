@@ -53,7 +53,7 @@ data "azurerm_resource_group" resource_group_name {
 resource "azurerm_databricks_workspace" workspace_name {
   name                = upper(local.workspace_name)
   resource_group_name = upper(local.resource_group_name)
-  location            = var.region
+  location            = module.tag.location_primary
   sku                 = "standard"
 
   //custom_parameters {
