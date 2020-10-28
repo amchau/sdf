@@ -1,20 +1,35 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+## Introduction 
+Terraform module to create databricks Workspace
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+## Requirements
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+| Name | Version |
+|------|---------|
+| azurerm | =2.5.0 |
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## Providers
+
+| Name | Version |
+|------|---------|
+| azurerm | =2.5.0 |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| additional\_tags | Additional set of tags | `map(string)` | `{}` | no |
+| environment | Environment. Upto 5 character. For e.g. dev, dev01 , prd01 | `string` | n/a | yes |
+| existing\_resource\_group | existing resource group name | `string` | `""` | no |
+| owner | owner | `string` | n/a | yes |
+| placement | placement | `string` | `"PUB"` | no |
+| project | project stream name | `string` | `"Stratos"` | no |
+| projectStream | 4 character project stream name/code | `string` | n/a | yes |
+| region | region. Choose from australia, europe, asia, europe | `string` | n/a | yes |
+| releaseVersion | releaseVersion | `string` | `"100"` | no |
+| workStream | 4 character project stream name/code | `string` | n/a | yes |
+
+## Outputs
+
+No output.
+
