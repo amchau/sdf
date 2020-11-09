@@ -22,6 +22,7 @@ Terraform module to create databricks Workspace
 | environment | Environment. Upto 5 character. For e.g. dev, dev01 , prd01 | `string` | n/a | yes |
 | existing\_resource\_group | existing resource group name | `string` | `""` | no |
 | owner | owner | `string` | n/a | yes |
+| sku | databricks sku | `string` | "standard" | yes |
 | placement | placement | `string` | `"PUB"` | no |
 | project | project stream name | `string` | `"Stratos"` | no |
 | projectStream | 4 character project stream name/code | `string` | n/a | yes |
