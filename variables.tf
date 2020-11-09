@@ -19,6 +19,13 @@ variable "workStream" {
   type        = string
 }
 
+
+variable "sku" {
+  description = "databricks SKU"
+  type        = string
+  default     = "standard"
+}
+
 variable "region" {
   type        = string
   description = "region. Choose from australia, europe, asia, europe"
