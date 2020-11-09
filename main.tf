@@ -54,7 +54,7 @@ resource "azurerm_databricks_workspace" workspace_name {
   name                = upper(local.workspace_name)
   resource_group_name = upper(local.resource_group_name)
   location            = module.tag.location_primary
-  sku                 = "standard"
+  sku                 = var.sku
 
   //custom_parameters {
 //    no_public_ip        = false
