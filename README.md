@@ -29,6 +29,7 @@ Terraform module to create databricks Workspace
 | region | region. Choose from australia, europe, asia, europe | `string` | n/a | yes |
 | releaseVersion | releaseVersion | `string` | `"100"` | no |
 | workStream | 4 character project stream name/code | `string` | n/a | yes |
+| admins | Comma seperated list of AAD accounts to be Workspace admins | `list` | n/a | no |
 
 ## Outputs
 
