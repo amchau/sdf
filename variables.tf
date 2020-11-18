@@ -67,3 +67,10 @@ variable "additional_tags" {
   type        = map(string)
   default     = {}
 }
+
+# Admins users
+variable "admins" {
+  description = "List of Admin Users "
+  type        = list
+  default     = []
+}

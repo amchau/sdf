@@ -6,6 +6,21 @@ provider "azurerm" {
 }
 
 
+terraform {
+  required_providers {
+    databricks = {
+      source = "databrickslabs/databricks"
+      version = "0.2.8"
+    }
+  }
+}
+
+provider "databricks" {
+  azure_workspace_resource_id = azurerm_databricks_workspace.workspace_name.id  
+}
+
+
+
 module "tag" {
   source         = "git::https://sede-ds-adp.visualstudio.com/Platform%20-%20General/_git/sedp-tf-az-tagging?ref=v0.3.2"
   projectStream  = var.projectStream
@@ -57,7 +72,7 @@ resource "azurerm_databricks_workspace" workspace_name {
   sku                 = var.sku
 
   //custom_parameters {
-//    no_public_ip        = false
+    //no_public_ip        = false
     //virtual_network_id  = azurerm_virtual_network.example.id
     //public_subnet_name  = azurerm_subnet.public.name
     //private_subnet_name = azurerm_subnet.private.name
@@ -68,4 +83,20 @@ resource "azurerm_databricks_workspace" workspace_name {
       tags
     ]
   }
+}
+
+//create admin user - If admins var is populated
+data "databricks_group" "admins" {
+  display_name = "admins"
+}
+ 
+resource "databricks_user" "me" {
+  count    = length(var.admins)
+  user_name    = var.admins[count.index]
+}
+
+resource "databricks_group_member" "i-am-admin" {
+  count    = length(var.admins)
+  group_id = data.databricks_group.admins.id
+  member_id = databricks_user.me[count.index].id
 }
