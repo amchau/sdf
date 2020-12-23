@@ -6,19 +6,19 @@
 # }
 
 
-terraform {
-  required_providers {
-    databricks = {
-      source = "databrickslabs/databricks"
-      version = "0.2.8"
-    }
-  }
-}
+#terraform {
+#  required_providers {
+#    databricks = {
+#      source = "databrickslabs/databricks"
+#      version = "0.2.8"
+#    }
+#  }
+#}
 
-provider "databricks" {
-  azure_workspace_resource_id = azurerm_databricks_workspace.workspace_name.id  
-}
-
+#provider "databricks" {
+#  azure_workspace_resource_id = azurerm_databricks_workspace.workspace_name.id  
+#}
+#
 
 
 module "tag" {
